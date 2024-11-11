@@ -19,7 +19,7 @@ jobs:
     steps:
     # Step 1: Check out the code
     - name: Checkout main branch
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4  # Update to the latest version to avoid Node.js deprecation warning
       with:
         fetch-depth: 0  # Fetch all history so we can switch branches later
 
