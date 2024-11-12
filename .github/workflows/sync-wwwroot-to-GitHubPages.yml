@@ -10,46 +10,57 @@ env:
   SUBFOLDER_PATH: Client/wwwroot  # Path of the subfolder to copy
   GIT_USER_NAME: "github-actions[bot]"  # GitHub Actions bot username
   GIT_USER_EMAIL: "github-actions[bot]@users.noreply.github.com"  # GitHub Actions bot email
-  BASE_COMMIT_MESSAGE: "Sync subfolder from main branch to GitHubPages"  # Base commit message
+  BASE_COMMIT_MESSAGE: "wwwroot sync from main"
+  OUTPUT_FOLDER: docs
+  OUTPUT_FOLDER_TEMP: ../OUTPUT_FOLDER_TEMP
 
 jobs:
-  copy-subfolder:
+  sync-wwwroot-to-GitHubPages:
     runs-on: ubuntu-latest
 
     steps:
     # Step 1: Check out the code
     - name: Checkout main branch
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4  # Update to the latest version to avoid Node.js deprecation warning
       with:
         fetch-depth: 0  # Fetch all history so we can switch branches later
 
     # Step 2: Copy subfolder to a temporary directory
     - name: Copy Subfolder
       run: |
-        mkdir -p subfolder_copy
-        cp -R $SUBFOLDER_PATH/* subfolder_copy/  # Use the variable for the subfolder path
+        mkdir -p $OUTPUT_FOLDER_TEMP
+        cp -R $SUBFOLDER_PATH/* $OUTPUT_FOLDER_TEMP/  # Use the variable for the subfolder path
 
-    # Step 3: Checkout the target branch
-    - name: Checkout target branch
+
+    # Step 3: Checkout and reset the target branch
+    - name: Checkout and reset target branch
       run: |
+        git config --global pull.rebase true
         git config user.name "$GIT_USER_NAME"
         git config user.email "$GIT_USER_EMAIL"
-        git checkout -B $TARGET_BRANCH  # Use the target branch variable
+        git fetch origin $TARGET_BRANCH
 
-    # Step 4: Copy the content to the root of the target branch
+        git checkout -B $TARGET_BRANCH origin/$TARGET_BRANCH
+        git reset --hard origin/$TARGET_BRANCH
+        rm -rf .github/*
+        rm -rf .gitignore
+
+    # Step 4: Move Subfolder to Target Branch
     - name: Move Subfolder to Target Branch
       run: |
-        cp -R subfolder_copy/* .  # Copies the content of subfolder_copy to the root of the target branch
-        rm -rf subfolder_copy      # Clean up the temporary directory
+        mkdir -p $OUTPUT_FOLDER
+        cp -R $OUTPUT_FOLDER_TEMP/* $OUTPUT_FOLDER
+        rm -rf $OUTPUT_FOLDER_TEMP
 
     # Step 5: Generate Commit Message with Date-Time
     - name: Generate Commit Message with Date-Time
       id: commit_message  # Set an ID to reference this step's outputs
       run: echo "COMMIT_MESSAGE=$BASE_COMMIT_MESSAGE $(date +"%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
 
+
     # Step 6: Commit and push changes
     - name: Commit changes
       run: |
         git add .
         git commit -m "$COMMIT_MESSAGE"  # Use the dynamic commit message
-        git push origin $TARGET_BRANCH  # Push to the target branch using the variable
+        git push -f origin $TARGET_BRANCH  # Force push to overwrite the target branch
