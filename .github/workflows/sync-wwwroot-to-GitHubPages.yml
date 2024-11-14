@@ -52,6 +52,7 @@ jobs:
         cp -R $OUTPUT_FOLDER_TEMP/* $OUTPUT_FOLDER
         rm -rf $OUTPUT_FOLDER_TEMP
         touch .nojekyll
+        touch $OUTPUT_FOLDER/.nojekyll
 
     - name: Generate Commit Message with Date-Time
       id: commit_message  # Set an ID to reference this step's outputs
