@@ -1,0 +1,5 @@
+is_global = true
+build_property.RootNamespace = BlazorApp.Shared
+build_property.ProjectDir = /home/runner/work/hyper-cards/hyper-cards/Shared/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

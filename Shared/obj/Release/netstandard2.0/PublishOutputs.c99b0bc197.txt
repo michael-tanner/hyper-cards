@@ -1,0 +1,3 @@
+/home/runner/work/hyper-cards/hyper-cards/Shared/bin/Release/netstandard2.0/publish/Shared.dll
+/home/runner/work/hyper-cards/hyper-cards/Shared/bin/Release/netstandard2.0/publish/Shared.deps.json
+/home/runner/work/hyper-cards/hyper-cards/Shared/bin/Release/netstandard2.0/publish/Shared.pdb
