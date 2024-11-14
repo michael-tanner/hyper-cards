@@ -22,6 +22,7 @@
   </Target>
 
   <Target Name="PostPublish" AfterTargets="Publish">
+    <Exec Command="rm $(PublishDir)wwwroot/index_src.html" />
     <Exec Command="mkdir -p $(PublishDir)wwwroot/calendar" />
     <Exec Command="mkdir -p $(PublishDir)wwwroot/notes" />
     <Exec Command="mkdir -p $(PublishDir)wwwroot/todo" />

@@ -19,24 +19,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Step 1: Check out the code
     - name: Checkout main branch
       uses: actions/checkout@v4  # Update to the latest version to avoid Node.js deprecation warning
       with:
         fetch-depth: 0  # Fetch all history so we can switch branches later
 
-    # Step 1.2: Build/publish the project
     - name: Build/publish the project
       run: dotnet publish -c Release
 
-    # Step 2: Copy subfolder to a temporary directory
-    - name: Copy Subfolder
+    - name: Copy subfolder to a temporary directory
       run: |
         mkdir -p $OUTPUT_FOLDER_TEMP
         cp -R $SUBFOLDER_PATH/* $OUTPUT_FOLDER_TEMP/  # Use the variable for the subfolder path
 
-
-    # Step 3: Checkout and reset the target branch
     - name: Checkout and reset target branch
       run: |
         git config --global pull.rebase true
@@ -49,21 +44,18 @@ jobs:
         rm -rf .github/*
         rm -rf .gitignore
 
-    # Step 4: Move Subfolder to Target Branch
     - name: Move Subfolder to Target Branch
       run: |
         mkdir -p $OUTPUT_FOLDER
         cp -R $OUTPUT_FOLDER_TEMP/* $OUTPUT_FOLDER
         rm -rf $OUTPUT_FOLDER_TEMP
+        touch .nojekyll
 
-    # Step 5: Generate Commit Message with Date-Time
     - name: Generate Commit Message with Date-Time
       id: commit_message  # Set an ID to reference this step's outputs
       run: echo "COMMIT_MESSAGE=$BASE_COMMIT_MESSAGE $(date +"%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
 
-
-    # Step 6: Commit and push changes
-    - name: Commit changes
+    - name: Commit and push changes
       run: |
         git add .
         git commit -m "$COMMIT_MESSAGE"  # Use the dynamic commit message
