@@ -37,6 +37,7 @@ jobs:
         git config --global pull.rebase true
         git config user.name "$GIT_USER_NAME"
         git config user.email "$GIT_USER_EMAIL"
+        git stash push --include-untracked -m "Stashing all changes"
         git fetch origin $TARGET_BRANCH
 
         git checkout -B $TARGET_BRANCH origin/$TARGET_BRANCH
