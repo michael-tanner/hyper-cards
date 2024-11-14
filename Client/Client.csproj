@@ -10,11 +10,24 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.0" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.Build.Framework" Version="17.12.6" />
   </ItemGroup>
-
 
   <ItemGroup>
-	<ProjectReference Include="..\Shared\Shared.csproj" />
+	  <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>
+
+  <Target Name="UpdateIndexHtml" BeforeTargets="Build">
+    <Exec Command="pwsh -ExecutionPolicy Bypass -File UpdateIndexHtml.ps1 -InputFile wwwroot/index_src.html -OutputFile wwwroot/index.html" />
+  </Target>
+
+  <Target Name="PostPublish" AfterTargets="Publish">
+    <Exec Command="mkdir -p $(PublishDir)wwwroot/calendar" />
+    <Exec Command="mkdir -p $(PublishDir)wwwroot/notes" />
+    <Exec Command="mkdir -p $(PublishDir)wwwroot/todo" />
+    <Exec Command="cp $(PublishDir)wwwroot/index.html $(PublishDir)wwwroot/calendar/index.html" />
+    <Exec Command="cp $(PublishDir)wwwroot/index.html $(PublishDir)wwwroot/notes/index.html" />
+    <Exec Command="cp $(PublishDir)wwwroot/index.html $(PublishDir)wwwroot/todo/index.html" />
+  </Target>
 
 </Project>
