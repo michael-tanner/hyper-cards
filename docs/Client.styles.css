@@ -4,5 +4,23 @@
 }
 /* /Layout/NavMenu.razor.rz.scp.css */
 nav[b-d13n4iuesv] {
-    font-size: 1em;;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav[b-d13n4iuesv]  a {
+    display: inline-block;
+    margin: 5px;
+    padding: 8px 20px;
+    font-size: 1.1em;
+    background-color: #fbf3ed;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #333;
+    user-select: none;
+}
+nav[b-d13n4iuesv]  .active {
+    background-color: #fff;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, .1);
 }
