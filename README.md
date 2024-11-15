@@ -29,7 +29,7 @@ dotnet publish -c Release
 
 To test published/static site, run this on your local machine:
 ```bash
-cd Client/bin/Release/net8.0/publish/wwwroot
+cd Client/bin/Release/net9.0/publish/wwwroot
 python3 -m http.server 8000
 ```
 
