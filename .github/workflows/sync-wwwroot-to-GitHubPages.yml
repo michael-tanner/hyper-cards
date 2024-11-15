@@ -24,8 +24,15 @@ jobs:
       with:
         fetch-depth: 0  # Fetch all history so we can switch branches later
 
-    - name: Build/publish the project
-      run: dotnet publish -c Release
+    - name: Setup .NET 9 SDK
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '9.0.x'
+      
+    - name: Restore and build/publish the project
+      run: |
+        dotnet restore
+        dotnet publish -c Release
 
     - name: Copy subfolder to a temporary directory
       run: |
