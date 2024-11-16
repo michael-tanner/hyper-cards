@@ -1,3 +1,58 @@
+/* /Components/CalendarComponent.razor.rz.scp.css */
+.calendar-box[b-q4hj82irlc] {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #fff;
+}
+[b-q4hj82irlc] .month-header {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+[b-q4hj82irlc] .weekdays, .days[b-q4hj82irlc] {
+    display: flex;
+    justify-content: space-between;
+}
+[b-q4hj82irlc] .weekdays {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+[b-q4hj82irlc] .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+}
+[b-q4hj82irlc] .day {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.2rem;
+    border-radius: 4px;
+}
+[b-q4hj82irlc] .day.today {
+    background-color: #9efaa2;
+    font-weight: bold;
+}
+[b-q4hj82irlc] .day.empty {
+    visibility: hidden;
+}
+@media (max-width: 600px) {
+    .calendar-box[b-q4hj82irlc] {
+        max-width: 100%;
+    }
+    [b-q4hj82irlc] .day {
+        width: 2rem;
+        height: 2rem;
+    }
+}
 /* /Layout/MainLayout.razor.rz.scp.css */
 .page[b-v8q5m4zhkd] {
     font-size: 1em;
@@ -8,19 +63,49 @@ nav[b-d13n4iuesv] {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+nav[b-d13n4iuesv]  .home {
+    color: #000;
 }
 nav[b-d13n4iuesv]  a {
     display: inline-block;
-    margin: 5px;
+    margin: 0 10px; /* Adjusted margin */
     padding: 8px 20px;
-    font-size: 1.1em;
+    font-size: 16px;
     background-color: #fbf3ed;
     border-radius: 20px;
     text-decoration: none;
-    color: #333;
+    color: #6b6bff;
+    font-family: monospace;
+    letter-spacing: .5px;
     user-select: none;
 }
 nav[b-d13n4iuesv]  .active {
     background-color: #fff;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, .1);
+}
+
+/* Media query for mobile devices */
+@media (max-width: 700px) {
+    nav[b-d13n4iuesv] {
+        flex-direction: column;
+        align-items: center; /* Adjusted alignment */
+    }
+    nav[b-d13n4iuesv]  a {
+        width: 100%;
+        text-align: center;
+        margin: 5px 0;
+    }
+}
+/* /Pages/Calendar.razor.rz.scp.css */
+.calendar-container[b-iuqi6nicjn] {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 100%;
+    margin: 2rem auto;
+    align-items: center;
+    padding: 0 1rem;
 }
