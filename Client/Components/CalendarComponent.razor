@@ -1,0 +1,39 @@
+@code {
+    [Parameter]
+    public DateTime Month { get; set; }
+}
+
+<div class="calendar-box">
+    <div class="month-header">
+        @Month.ToString("MMMM yyyy")
+    </div>
+    <div class="weekdays">
+        <div>Sun</div>
+        <div>Mon</div>
+        <div>Tue</div>
+        <div>Wed</div>
+        <div>Thu</div>
+        <div>Fri</div>
+        <div>Sat</div>
+    </div>
+    <div class="days">
+        @{
+            var firstDay = new DateTime(Month.Year, Month.Month, 1);
+            var lastDay = firstDay.AddMonths(1).AddDays(-1);
+            
+            // Add empty cells for days before the first day of the month
+            for (int j = 0; j < (int)firstDay.DayOfWeek; j++)
+            {
+                <div class="day empty"></div>
+            }
+            
+            // Add all days of the month
+            for (int day = 1; day <= lastDay.Day; day++)
+            {
+                var date = new DateTime(Month.Year, Month.Month, day);
+                var isToday = date.Date == DateTime.Now.Date;
+                <div class="day @(isToday ? "today" : "")">@day</div>
+            }
+        }
+    </div>
+</div>
