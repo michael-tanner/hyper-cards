@@ -1,11 +1,10 @@
 /* /Components/CalendarComponent.razor.rz.scp.css */
 .calendar-box[b-q4hj82irlc] {
-    border: 1px solid #ccc;
     padding: 1rem;
     width: 100%;
     max-width: 600px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    box-shadow: 1px 2px 10px #00000011;
+    border-radius: 27px;
     background-color: #fff;
 }
 [b-q4hj82irlc] .month-header {
@@ -65,16 +64,17 @@ nav[b-d13n4iuesv] {
     align-items: center;
     width: 100%;
     box-sizing: border-box;
+    background-color: #feeee5;
 }
 nav[b-d13n4iuesv]  .home {
     color: #000;
+    font-size: 18px;
 }
 nav[b-d13n4iuesv]  a {
     display: inline-block;
     margin: 0 10px; /* Adjusted margin */
     padding: 8px 20px;
     font-size: 16px;
-    background-color: #fbf3ed;
     border-radius: 20px;
     text-decoration: none;
     color: #6b6bff;
