@@ -1,3 +1,8 @@
 .page {
-    font-size: 1em;
+    font-size: 16px;
+    font-family: monospace;
+}
+
+main {
+    padding: 0 15px;
 }

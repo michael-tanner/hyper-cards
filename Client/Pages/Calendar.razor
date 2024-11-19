@@ -3,7 +3,7 @@
 <PageTitle>Calendar</PageTitle>
 
 <div class="calendar-container centered-content">
-    @for (int i = 0; i < 4; i++)
+    @for (int i = 0; i < 6; i++)
     {
         <CalendarComponent Month="@DateTime.Now.AddMonths(i)" />
     }

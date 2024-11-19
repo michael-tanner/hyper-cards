@@ -9,7 +9,7 @@ nav {
 }
 nav ::deep .home {
     color: #000;
-    font-size: 18px;
+    font-size: 19px;
 }
 nav ::deep a {
     display: inline-block;
