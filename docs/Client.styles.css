@@ -6,6 +6,7 @@
     box-shadow: 1px 2px 10px #00000011;
     border-radius: 27px;
     background-color: #fff;
+    margin-bottom: 10px;
 }
 [b-q4hj82irlc] .month-header {
     font-weight: bold;
@@ -18,9 +19,21 @@
     justify-content: space-between;
 }
 [b-q4hj82irlc] .weekdays {
-    border-bottom: 1px solid #eee;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
     padding-bottom: 0.5rem;
     margin-bottom: 0.5rem;
+    color: #b6c5e8;
+}
+[b-q4hj82irlc] .weekdays div {
+    height: 3em;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+[b-q4hj82irlc] .weekdays div, [b-q4hj82irlc] .day {
+    text-align: center;
 }
 [b-q4hj82irlc] .days {
     display: grid;
@@ -28,8 +41,7 @@
     gap: 0.5rem;
 }
 [b-q4hj82irlc] .day {
-    width: 3rem;
-    height: 3rem;
+    height: 2.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,7 +49,9 @@
     border-radius: 4px;
 }
 [b-q4hj82irlc] .day.today {
-    background-color: #9efaa2;
+    background-color: #5f5fff;
+    color: #fff;
+    border-radius: 20px;
     font-weight: bold;
 }
 [b-q4hj82irlc] .day.empty {
@@ -54,7 +68,12 @@
 }
 /* /Layout/MainLayout.razor.rz.scp.css */
 .page[b-v8q5m4zhkd] {
-    font-size: 1em;
+    font-size: 16px;
+    font-family: monospace;
+}
+
+main[b-v8q5m4zhkd] {
+    padding: 0 15px;
 }
 /* /Layout/NavMenu.razor.rz.scp.css */
 nav[b-d13n4iuesv] {
@@ -68,7 +87,7 @@ nav[b-d13n4iuesv] {
 }
 nav[b-d13n4iuesv]  .home {
     color: #000;
-    font-size: 18px;
+    font-size: 19px;
 }
 nav[b-d13n4iuesv]  a {
     display: inline-block;
@@ -107,5 +126,5 @@ nav[b-d13n4iuesv]  .active {
     max-width: 100%;
     margin: 2rem auto;
     align-items: center;
-    padding: 0 1rem;
+    padding: 10px;
 }
