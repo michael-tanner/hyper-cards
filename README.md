@@ -15,6 +15,8 @@ dotnet run
 
 Then in another terminal, run:
 ```bash
+# Ensure swa is installed: https://azure.github.io/static-web-apps-cli/
+
 swa start http://localhost:5000
 ```
 

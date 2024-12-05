@@ -6,6 +6,7 @@
     border-radius: 27px;
     background-color: #fff;
     margin-bottom: 10px;
+    border: 2px dashed #ff9854;
 }
 ::deep .month-header {
     font-weight: bold;
