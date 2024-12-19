@@ -51,7 +51,7 @@
 ::deep .day.today {
     background-color: #5f5fff;
     color: #fff;
-    border-radius: 20px;
+    border-radius: 50%;
     font-weight: bold;
 }
 ::deep .day.empty {
