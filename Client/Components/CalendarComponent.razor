@@ -1,39 +1,76 @@
 @code {
     [Parameter]
     public DateTime Month { get; set; }
+
+    public string GetTdClass(DateTime currentDay)
+    {
+        String rtn = "";
+        int lastDayOfMonth = DateTime.DaysInMonth(currentDay.Year, currentDay.Month);
+        if (currentDay.Day < 8)
+            rtn += "Top ";
+        if (currentDay.DayOfWeek == DayOfWeek.Saturday || currentDay.Day == lastDayOfMonth)
+            rtn += "Right ";
+        if (currentDay.Day > lastDayOfMonth - 7)
+            rtn += "Bottom ";
+        if (currentDay.DayOfWeek == DayOfWeek.Sunday || currentDay.Day == 1)
+            rtn += "Left ";
+
+        return rtn.Trim();
+    }
 }
 
 <div class="calendar-box">
     <div class="month-header">
-        @Month.ToString("MMMM yyyy")
+        <span class="month">@Month.ToString("MMMM")</span>
+        <span class="year">@Month.Year</span>
     </div>
-    <div class="weekdays">
-        <div>S</div>
-        <div>M</div>
-        <div>T</div>
-        <div>W</div>
-        <div>T</div>
-        <div>F</div>
-        <div>S</div>
-    </div>
-    <div class="days">
-        @{
-            var firstDay = new DateTime(Month.Year, Month.Month, 1);
-            var lastDay = firstDay.AddMonths(1).AddDays(-1);
-            
-            // Add empty cells for days before the first day of the month
-            for (int j = 0; j < (int)firstDay.DayOfWeek; j++)
-            {
-                <div class="day empty"></div>
+    <table>
+        <thead>
+            <tr>
+                <th>S</th>
+                <th>M</th>
+                <th>T</th>
+                <th>W</th>
+                <th>T</th>
+                <th>F</th>
+                <th>S</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var firstDay = new DateTime(Month.Year, Month.Month, 1);
+                var lastDay = firstDay.AddMonths(1).AddDays(-1);
+                var currentDay = firstDay.AddDays(-((int)firstDay.DayOfWeek));
+
+                @while (currentDay <= lastDay.AddDays(6 - (int)lastDay.DayOfWeek))
+                {
+                    <tr>
+                        @for (int i = 0; i < 7; i++)
+                        {
+                            if (currentDay.Month == Month.Month)
+                            {
+                                var isToday = currentDay.Date == DateTime.Now.Date;
+                                <td class="@GetTdClass(currentDay)">
+                                    @if (isToday)
+                                    {
+                                        <div class="today">@currentDay.Day</div>
+                                    }
+                                    else
+                                    {
+                                        @currentDay.Day
+                                    }
+                                </td>
+                            }
+                            else
+                            {
+                                <td class="empty"></td>
+                            }
+                            currentDay = currentDay.AddDays(1);
+                        }
+                    </tr>
+                }
             }
-            
-            // Add all days of the month
-            for (int day = 1; day <= lastDay.Day; day++)
-            {
-                var date = new DateTime(Month.Year, Month.Month, day);
-                var isToday = date.Date == DateTime.Now.Date;
-                <div class="day @(isToday ? "today" : "")">@day</div>
-            }
-        }
-    </div>
+        </tbody>
+    </table>
 </div>
+
