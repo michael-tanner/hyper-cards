@@ -2,11 +2,13 @@
 .calendar-box[b-q4hj82irlc] {
     padding: 1rem;
     width: 100%;
-    max-width: 600px;
+    max-width: 700px;
     margin-bottom: 10px;
     background: #f2f1f47a;
     border-radius: 20px;
     border: 1px solid #c5bbda78;
+    border-bottom-width: 6px;
+    border-right-width: 3px;
 }
 [b-q4hj82irlc] .month-header {
     font-weight: bold;
@@ -27,7 +29,7 @@
     position: absolute;
     inset: 0;
     margin: auto;
-    width: 60%;
+    width: 50%;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     display: flex;
@@ -45,7 +47,7 @@
 [b-q4hj82irlc] thead { display: none; }
 [b-q4hj82irlc] td {
     text-align: center;
-    padding: 22px 4px;
+    padding: 30px 4px;
     position: relative;
     background: #fff;
 }
@@ -67,10 +69,13 @@
 @media (max-width: 600px) {
     .calendar-box[b-q4hj82irlc] {
         max-width: 100%;
+        border-radius: 0;
+    }
+    [b-q4hj82irlc] td {
+        padding: 20px 4px;
     }
     [b-q4hj82irlc] .today {
-        width: 2rem;
-        height: 2rem;
+        width: 55%;
     }
 }
 /* /Layout/MainLayout.razor.rz.scp.css */
@@ -133,5 +138,4 @@ nav[b-d13n4iuesv]  .active {
     max-width: 100%;
     margin: 2rem auto;
     align-items: center;
-    padding: 10px;
 }
