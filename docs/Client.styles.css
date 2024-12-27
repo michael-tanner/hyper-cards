@@ -3,68 +3,72 @@
     padding: 1rem;
     width: 100%;
     max-width: 600px;
-    box-shadow: 1px 2px 10px #00000011;
-    border-radius: 27px;
-    background-color: #fff;
     margin-bottom: 10px;
-    border: 2px dashed #ff9854;
+    background: #f2f1f47a;
+    border-radius: 20px;
+    border: 1px solid #c5bbda78;
 }
 [b-q4hj82irlc] .month-header {
     font-weight: bold;
     text-align: center;
     margin-bottom: 1rem;
-    font-size: 1.5rem;
-}
-[b-q4hj82irlc] .weekdays, .days[b-q4hj82irlc] {
+    font-size: 1.2rem;
     display: flex;
     justify-content: space-between;
+    padding: 2px 4px;
 }
-[b-q4hj82irlc] .weekdays {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 0.5rem;
-    padding-bottom: 0.5rem;
-    margin-bottom: 0.5rem;
-    color: #b6c5e8;
+[b-q4hj82irlc] .month-header .month {
+    float: left;
 }
-[b-q4hj82irlc] .weekdays div {
-    height: 3em;
-    justify-content: center;
-    align-items: center;
-    display: flex;
+[b-q4hj82irlc] .month-header .year {
+    float: right;
 }
-[b-q4hj82irlc] .weekdays div, [b-q4hj82irlc] .day {
-    text-align: center;
-}
-[b-q4hj82irlc] .days {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 0.5rem;
-}
-[b-q4hj82irlc] .day {
-    height: 2.5rem;
+[b-q4hj82irlc] .today {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 60%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0.2rem;
-    border-radius: 4px;
-}
-[b-q4hj82irlc] .day.today {
     background-color: #5f5fff;
     color: #fff;
-    border-radius: 30px;
-    max-width: 60px;
-
     font-weight: bold;
 }
-[b-q4hj82irlc] .day.empty {
+[b-q4hj82irlc] table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+[b-q4hj82irlc] thead { display: none; }
+[b-q4hj82irlc] td {
+    text-align: center;
+    padding: 22px 4px;
+    position: relative;
+    background: #fff;
+}
+[b-q4hj82irlc] thead th:nth-child(1),
+[b-q4hj82irlc] tbody td:nth-child(1),
+[b-q4hj82irlc] thead th:nth-child(7),
+[b-q4hj82irlc] tbody td:nth-child(7) {
+    color: #00000033;
+}
+[b-q4hj82irlc] tbody .Top { border-top: 1px solid #c5bbda; }
+[b-q4hj82irlc] tbody .Right { border-right: 1px solid #c5bbda; }
+[b-q4hj82irlc] tbody .Bottom { border-bottom: 1px solid #c5bbda; }
+[b-q4hj82irlc] tbody .Left { border-left: 1px solid #c5bbda; }
+
+[b-q4hj82irlc] .empty {
     visibility: hidden;
 }
+
 @media (max-width: 600px) {
     .calendar-box[b-q4hj82irlc] {
         max-width: 100%;
     }
-    [b-q4hj82irlc] .day {
+    [b-q4hj82irlc] .today {
         width: 2rem;
         height: 2rem;
     }
