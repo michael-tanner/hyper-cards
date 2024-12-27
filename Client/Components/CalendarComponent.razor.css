@@ -1,11 +1,13 @@
 .calendar-box {
     padding: 1rem;
     width: 100%;
-    max-width: 600px;
+    max-width: 700px;
     margin-bottom: 10px;
     background: #f2f1f47a;
     border-radius: 20px;
     border: 1px solid #c5bbda78;
+    border-bottom-width: 6px;
+    border-right-width: 3px;
 }
 ::deep .month-header {
     font-weight: bold;
@@ -26,7 +28,7 @@
     position: absolute;
     inset: 0;
     margin: auto;
-    width: 60%;
+    width: 50%;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     display: flex;
@@ -44,7 +46,7 @@
 ::deep thead { display: none; }
 ::deep td {
     text-align: center;
-    padding: 22px 4px;
+    padding: 30px 4px;
     position: relative;
     background: #fff;
 }
@@ -66,9 +68,12 @@
 @media (max-width: 600px) {
     .calendar-box {
         max-width: 100%;
+        border-radius: 0;
+    }
+    ::deep td {
+        padding: 20px 4px;
     }
     ::deep .today {
-        width: 2rem;
-        height: 2rem;
+        width: 55%;
     }
 }
