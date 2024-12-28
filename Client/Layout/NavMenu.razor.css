@@ -5,21 +5,23 @@ nav {
     align-items: center;
     width: 100%;
     box-sizing: border-box;
-    background-color: #feeee5;
+    background-color: #ffede3;
+    border-bottom: 2px solid #fee5d6;
 }
 nav ::deep .home {
     color: #000;
-    font-size: 19px;
+    font-size: 21px;
+    font-weight: 400;
 }
 nav ::deep a {
     display: inline-block;
     margin: 0 10px; /* Adjusted margin */
     padding: 8px 20px;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 500;
     border-radius: 20px;
     text-decoration: none;
-    color: #6b6bff;
-    font-family: monospace;
+    color: #4545de;
     letter-spacing: .5px;
     user-select: none;
 }
@@ -35,7 +37,7 @@ nav ::deep .active {
         align-items: center; /* Adjusted alignment */
     }
     nav ::deep a {
-        width: 100%;
+        min-width: 220px;
         text-align: center;
         margin: 5px 0;
     }

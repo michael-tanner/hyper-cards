@@ -7,16 +7,17 @@
     border-radius: 20px;
     border: 1px solid #c5bbdaa8;
     border-width: 1px 3px 6px 1px;
+    border-style: double;
 }
 ::deep .month-header {
-    font-weight: bold;
     text-align: center;
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
+    margin-bottom: 16px;
     display: flex;
     justify-content: space-between;
     padding: 2px 4px;
-    color: #00439f;
+    font-weight: 500;
+    font-size: 24px;
+    color: #2525b2;
 }
 ::deep .month-header .month {
     float: left;
@@ -49,6 +50,8 @@
     padding: 30px 4px;
     position: relative;
     background: #fff;
+    font-size: 18px;
+    font-weight: 500;
 }
 ::deep thead th:nth-child(1),
 ::deep tbody td:nth-child(1),
