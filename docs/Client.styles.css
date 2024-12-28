@@ -8,16 +8,17 @@
     border-radius: 20px;
     border: 1px solid #c5bbdaa8;
     border-width: 1px 3px 6px 1px;
+    border-style: double;
 }
 [b-q4hj82irlc] .month-header {
-    font-weight: bold;
     text-align: center;
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
+    margin-bottom: 16px;
     display: flex;
     justify-content: space-between;
     padding: 2px 4px;
-    color: #00439f;
+    font-weight: 500;
+    font-size: 24px;
+    color: #2525b2;
 }
 [b-q4hj82irlc] .month-header .month {
     float: left;
@@ -50,6 +51,8 @@
     padding: 30px 4px;
     position: relative;
     background: #fff;
+    font-size: 18px;
+    font-weight: 500;
 }
 [b-q4hj82irlc] thead th:nth-child(1),
 [b-q4hj82irlc] tbody td:nth-child(1),
@@ -81,7 +84,6 @@
 /* /Layout/MainLayout.razor.rz.scp.css */
 .page[b-v8q5m4zhkd] {
     font-size: 16px;
-    font-family: monospace;
 }
 
 main[b-v8q5m4zhkd] {
@@ -95,21 +97,23 @@ nav[b-d13n4iuesv] {
     align-items: center;
     width: 100%;
     box-sizing: border-box;
-    background-color: #feeee5;
+    background-color: #ffede3;
+    border-bottom: 2px solid #fee5d6;
 }
 nav[b-d13n4iuesv]  .home {
     color: #000;
-    font-size: 19px;
+    font-size: 21px;
+    font-weight: 400;
 }
 nav[b-d13n4iuesv]  a {
     display: inline-block;
     margin: 0 10px; /* Adjusted margin */
     padding: 8px 20px;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 500;
     border-radius: 20px;
     text-decoration: none;
-    color: #6b6bff;
-    font-family: monospace;
+    color: #4545de;
     letter-spacing: .5px;
     user-select: none;
 }
@@ -125,7 +129,7 @@ nav[b-d13n4iuesv]  .active {
         align-items: center; /* Adjusted alignment */
     }
     nav[b-d13n4iuesv]  a {
-        width: 100%;
+        min-width: 220px;
         text-align: center;
         margin: 5px 0;
     }
