@@ -24,6 +24,15 @@ jobs:
       with:
         fetch-depth: 0  # Fetch all history so we can switch branches later
 
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+
+    - name: Build Docker image
+      run: docker build -t hyper-cards-devcontainer -f .devcontainer/Dockerfile .
+
+    - name: Run update-index-html.sh
+      run: docker run --rm -v ${{ github.workspace }}:/workspace hyper-cards-devcontainer /usr/local/bin/update-index-html.sh
+
     - name: Setup .NET 9 SDK
       uses: actions/setup-dotnet@v3
       with:

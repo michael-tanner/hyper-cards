@@ -1,0 +1,22 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/dotnet
+{
+	"name": "C# and Blazor Dev Container",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "bash"
+			}
+		},
+		"extensions": [
+			"ms-dotnettools.csharp", // C# support
+			"eamodio.gitlens", // GitLens for git insights
+			"ms-vscode.vscode-typescript-next" // Optional for JS/TS in Blazor
+		]
+	},
+	"postCreateCommand": "dotnet restore && /usr/local/bin/update-index-html.sh", // Restore NuGet packages
+	"remoteUser": "vscode"
+}

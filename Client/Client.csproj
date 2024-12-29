@@ -17,10 +17,6 @@
 	  <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>
 
-  <Target Name="UpdateIndexHtml" BeforeTargets="Build">
-    <Exec Command="pwsh -ExecutionPolicy Bypass -File UpdateIndexHtml.ps1 -InputFile wwwroot/index_src.html -OutputFile wwwroot/index.html" />
-  </Target>
-
   <Target Name="PostPublish" AfterTargets="Publish">
     <Exec Command="rm $(PublishDir)wwwroot/index_src.html" />
     <Exec Command="mkdir -p $(PublishDir)wwwroot/calendar" />
