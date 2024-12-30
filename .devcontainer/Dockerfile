@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean
 
 # Add the script to update the HTML file
-COPY update-index-html.sh /usr/local/bin/update-index-html.sh
+COPY .devcontainer/update-index-html.sh /usr/local/bin/update-index-html.sh
 RUN chmod +x /usr/local/bin/update-index-html.sh
 
 # Set up a non-root user
