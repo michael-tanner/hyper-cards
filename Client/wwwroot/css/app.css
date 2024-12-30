@@ -9,7 +9,7 @@ html, body {
 }
 
 h1 {
-    padding: 20px 20px;
+    padding: 20px 30px;
     background-color: #fff;
     border-radius: 15px;
     font-size: 32px;
@@ -34,7 +34,6 @@ a, a:visited {
 }
 a:hover {
     color: #2a0193;
-    text-decoration: underline;
 }
 
 .shadow1 {
@@ -48,14 +47,14 @@ a:hover {
 .loading-progress-text:after { content: var(--blazor-load-percentage-text, "Loading"); }
 
 card { 
-    max-width: 760px;
+    max-width: 800px;
     margin: 40px auto;
-    border: 1px solid #48bfe3;
+    border: 1px solid #1ec3f5;
     border-width: 1px 3px 4px 1px;
     border-radius: 15px;
     display: block;
     background: #fff;
-    padding: 40px;
+    padding: 30px;
     line-height: 1.5em;
     font-size: 19px;    
 }
