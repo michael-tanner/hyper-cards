@@ -66,8 +66,9 @@ jobs:
         rm -rf $OUTPUT_FOLDER_TEMP
         touch $OUTPUT_FOLDER/.nojekyll
 
-    - name: Run update-index-html.sh
-      run: bash /workspaces/hyper-cards/.devcontainer/update-index-html.sh
+    # - name: Run update-index-html.sh
+    #   run: |
+    #     INPUT_FILE=docs/index_src.html OUTPUT_FILE=docs/index.html bash /workspaces/hyper-cards/.devcontainer/update-index-html.sh
 
     - name: Generate Commit Message with Date-Time
       id: commit_message  # Set an ID to reference this step's outputs

@@ -1,8 +1,5 @@
 #!/bin/bash
 
-INPUT_FILE="/workspaces/hyper-cards/Client/wwwroot/index_src.html"
-OUTPUT_FILE="/workspaces/hyper-cards/Client/wwwroot/index.html"
-
 # Generate a new GUID
 GUID=$(uuidgen)
 
