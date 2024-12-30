@@ -30,9 +30,6 @@ jobs:
     - name: Build Docker image
       run: docker build -t hyper-cards-devcontainer -f .devcontainer/Dockerfile .
 
-    - name: Run update-index-html.sh
-      run: docker run --rm -v ${{ github.workspace }}:/workspace hyper-cards-devcontainer /usr/local/bin/update-index-html.sh
-
     - name: Setup .NET 9 SDK
       uses: actions/setup-dotnet@v3
       with:
@@ -68,6 +65,9 @@ jobs:
         cp -R $OUTPUT_FOLDER_TEMP/* $OUTPUT_FOLDER
         rm -rf $OUTPUT_FOLDER_TEMP
         touch $OUTPUT_FOLDER/.nojekyll
+
+    - name: Run update-index-html.sh
+      run: bash /workspaces/hyper-cards/.devcontainer/update-index-html.sh
 
     - name: Generate Commit Message with Date-Time
       id: commit_message  # Set an ID to reference this step's outputs

@@ -4,22 +4,8 @@ FROM mcr.microsoft.com/devcontainers/dotnet:1-9.0 AS base
 # Install additional tools if needed
 RUN apt-get update && apt-get install -y \
     git \
-    curl \
+    uuid-runtime \
     && apt-get clean
-
-# Install Node.js (using NodeSource)
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
-    && apt-get install -y nodejs \
-    && npm install -g @azure/static-web-apps-cli
-
-# Install PowerShell
-RUN apt-get update && apt-get install -y \
-    powershell \
-    && apt-get clean
-
-# Add the script to update the HTML file
-COPY .devcontainer/update-index-html.sh /usr/local/bin/update-index-html.sh
-RUN chmod +x /usr/local/bin/update-index-html.sh
 
 # Set up a non-root user
 ARG USERNAME=vscode

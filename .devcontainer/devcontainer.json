@@ -17,6 +17,7 @@
 			"ms-vscode.vscode-typescript-next" // Optional for JS/TS in Blazor
 		]
 	},
-	"postCreateCommand": "dotnet restore && /usr/local/bin/update-index-html.sh", // Restore NuGet packages
+	"postCreateCommand": "dotnet restore", // Restore NuGet packages
+	"postStartCommand": "bash /workspaces/hyper-cards/.devcontainer/update-index-html.sh",
 	"remoteUser": "vscode"
 }
