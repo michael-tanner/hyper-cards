@@ -5,9 +5,8 @@
     margin-bottom: 10px;
     background: #f9f0f3;
     border-radius: 20px;
-    border: 1px solid #c5bbdaa8;
+    border: 1px solid #7958be;
     border-width: 1px 3px 6px 1px;
-    border-style: double;
 }
 ::deep .month-header {
     text-align: center;
@@ -59,10 +58,11 @@
 ::deep tbody td:nth-child(7) {
     color: #5f5fff57;
 }
-::deep tbody .Top { border-top: 2px solid #7958be; }
-::deep tbody .Right { border-right: 3px solid #7958be; }
-::deep tbody .Bottom { border-bottom: 3px solid #7958be; }
-::deep tbody .Left { border-left: 2px solid #7958be; }
+::deep tbody .Top, .Right, .Bottom, .Left { border: 0px solid #d9c8ff; }
+::deep tbody .Top    { border-top-width:    2px; }
+::deep tbody .Right  { border-right-width:  4px; }
+::deep tbody .Bottom { border-bottom-width: 4px; }
+::deep tbody .Left   { border-left-width:   2px; }
 
 ::deep .empty {
     visibility: hidden;
